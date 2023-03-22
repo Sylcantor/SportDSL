@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sportProgram" nsURI="http://www.example.org/sportProgram" nsPrefix="sportProgram">
+  <eClassifiers xsi:type="ecore:EClass" name="Objectif">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//EnumObjectif"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumObjectif" instanceClassName="">
+    <eLiterals name="Force"/>
+    <eLiterals name="Hybride" value="1"/>
+    <eLiterals name="Expert" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Utilisateur">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Sexe" eType="#//EnumSexe"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumSexe">
+    <eLiterals name="M"/>
+    <eLiterals name="F" value="1"/>
+  </eClassifiers>
+</ecore:EPackage>
