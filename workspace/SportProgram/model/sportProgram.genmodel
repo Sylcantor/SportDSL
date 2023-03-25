@@ -9,26 +9,54 @@
   <foreignModel>sportProgram.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="SportProgram" disposableProviderFactory="true" ecorePackage="sportProgram.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sportProgram.ecore#//EnumObjectif">
-      <genEnumLiterals ecoreEnumLiteral="sportProgram.ecore#//EnumObjectif/Force"/>
-      <genEnumLiterals ecoreEnumLiteral="sportProgram.ecore#//EnumObjectif/Hybride"/>
-      <genEnumLiterals ecoreEnumLiteral="sportProgram.ecore#//EnumObjectif/Expert"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sportProgram.ecore#//EnumIntensity">
+      <genEnumLiterals ecoreEnumLiteral="sportProgram.ecore#//EnumIntensity/Low"/>
+      <genEnumLiterals ecoreEnumLiteral="sportProgram.ecore#//EnumIntensity/Medium"/>
+      <genEnumLiterals ecoreEnumLiteral="sportProgram.ecore#//EnumIntensity/High"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sportProgram.ecore#//EnumSexe">
-      <genEnumLiterals ecoreEnumLiteral="sportProgram.ecore#//EnumSexe/M"/>
-      <genEnumLiterals ecoreEnumLiteral="sportProgram.ecore#//EnumSexe/F"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sportProgram.ecore#//EnumMuscleTarget">
+      <genEnumLiterals ecoreEnumLiteral="sportProgram.ecore#//EnumMuscleTarget/None"/>
+      <genEnumLiterals ecoreEnumLiteral="sportProgram.ecore#//EnumMuscleTarget/UpperBody"/>
+      <genEnumLiterals ecoreEnumLiteral="sportProgram.ecore#//EnumMuscleTarget/LowerBody"/>
+      <genEnumLiterals ecoreEnumLiteral="sportProgram.ecore#//EnumMuscleTarget/Mixed"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sportProgram.ecore#//EnumNiveau">
-      <genEnumLiterals ecoreEnumLiteral="sportProgram.ecore#//EnumNiveau/Débutant"/>
-      <genEnumLiterals ecoreEnumLiteral="sportProgram.ecore#//EnumNiveau/Intermediaire"/>
-      <genEnumLiterals ecoreEnumLiteral="sportProgram.ecore#//EnumNiveau/Expert"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sportProgram.ecore#//EnumAvailability">
+      <genEnumLiterals ecoreEnumLiteral="sportProgram.ecore#//EnumAvailability/Morning"/>
+      <genEnumLiterals ecoreEnumLiteral="sportProgram.ecore#//EnumAvailability/Afternoon"/>
+      <genEnumLiterals ecoreEnumLiteral="sportProgram.ecore#//EnumAvailability/Evening"/>
+      <genEnumLiterals ecoreEnumLiteral="sportProgram.ecore#//EnumAvailability/Flexible"/>
     </genEnums>
-    <genClasses ecoreClass="sportProgram.ecore#//Objectif">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sportProgram.ecore#//Objectif/name"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="sportProgram.ecore#//EnumPrgDurationType">
+      <genEnumLiterals ecoreEnumLiteral="sportProgram.ecore#//EnumPrgDurationType/Weeks"/>
+      <genEnumLiterals ecoreEnumLiteral="sportProgram.ecore#//EnumPrgDurationType/Months"/>
+    </genEnums>
+    <genClasses ecoreClass="sportProgram.ecore#//Training">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sportProgram.ecore#//Training/Intensity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sportProgram.ecore#//Training/frequency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sportProgram.ecore#//Training/mulscleTarget"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sportProgram.ecore#//Training/duration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sportProgram.ecore#//Training/type"/>
     </genClasses>
-    <genClasses ecoreClass="sportProgram.ecore#//Utilisateur">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sportProgram.ecore#//Utilisateur/Sexe"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sportProgram.ecore#//Utilisateur/Niveau"/>
+    <genClasses ecoreClass="sportProgram.ecore#//Preferences">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sportProgram.ecore#//Preferences/availability"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sportProgram.ecore#//Preferences/equipment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sportProgram.ecore#//Preferences/disability"/>
+    </genClasses>
+    <genClasses ecoreClass="sportProgram.ecore#//ProgramDuration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sportProgram.ecore#//ProgramDuration/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sportProgram.ecore#//ProgramDuration/value"/>
+    </genClasses>
+    <genClasses ecoreClass="sportProgram.ecore#//SportProgram">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sportProgram.ecore#//SportProgram/programduration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sportProgram.ecore#//SportProgram/preferences"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sportProgram.ecore#//SportProgram/training"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sportProgram.ecore#//SportProgram/librarytype"/>
+    </genClasses>
+    <genClasses ecoreClass="sportProgram.ecore#//Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sportProgram.ecore#//Type/name"/>
+    </genClasses>
+    <genClasses ecoreClass="sportProgram.ecore#//LibraryType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sportProgram.ecore#//LibraryType/type"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

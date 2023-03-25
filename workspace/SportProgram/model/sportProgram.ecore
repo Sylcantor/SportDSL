@@ -1,26 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sportProgram" nsURI="http://www.example.org/sportProgram" nsPrefix="sportProgram">
-  <eClassifiers xsi:type="ecore:EClass" name="Objectif">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//EnumObjectif"
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumIntensity">
+    <eLiterals name="Low"/>
+    <eLiterals name="Medium" value="1"/>
+    <eLiterals name="High" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Training">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Intensity" eType="#//EnumIntensity"
         defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="frequency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mulscleTarget" eType="#//EnumMuscleTarget"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Type"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="EnumObjectif" instanceClassName="">
-    <eLiterals name="Force"/>
-    <eLiterals name="Hybride" value="1"/>
-    <eLiterals name="Expert" value="2"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumMuscleTarget">
+    <eLiterals name="None"/>
+    <eLiterals name="UpperBody" value="1"/>
+    <eLiterals name="LowerBody" value="2"/>
+    <eLiterals name="Mixed" value="3"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Utilisateur">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Sexe" eType="#//EnumSexe"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Niveau" eType="#//EnumNiveau"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Preferences">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="availability" eType="#//EnumAvailability"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="equipment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="disability" eType="#//EnumMuscleTarget"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="EnumSexe">
-    <eLiterals name="M"/>
-    <eLiterals name="F" value="1"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumAvailability">
+    <eLiterals name="Morning"/>
+    <eLiterals name="Afternoon" value="1"/>
+    <eLiterals name="Evening" value="2"/>
+    <eLiterals name="Flexible" value="3"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="EnumNiveau">
-    <eLiterals name="Débutant"/>
-    <eLiterals name="Intermediaire" value="1"/>
-    <eLiterals name="Expert" value="2"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProgramDuration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//EnumPrgDurationType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnumPrgDurationType">
+    <eLiterals name="Weeks"/>
+    <eLiterals name="Months" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SportProgram">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="programduration" lowerBound="1"
+        eType="#//ProgramDuration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preferences" eType="#//Preferences"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="training" upperBound="-1"
+        eType="#//Training" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="librarytype" eType="#//LibraryType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LibraryType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" upperBound="-1" eType="#//Type"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

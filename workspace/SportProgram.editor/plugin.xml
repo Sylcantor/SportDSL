@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated sportProgram -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="sportProgram.presentation.SportProgramModelWizardID"
+            name="%_UI_SportProgramModelWizard_label"
+            class="sportProgram.presentation.SportProgramModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SportProgramModelFile.gif">
+         <description>%_UI_SportProgramModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated sportProgram -->
+      <editor
+            id="sportProgram.presentation.SportProgramEditorID"
+            name="%_UI_SportProgramEditor_label"
+            icon="icons/full/obj16/SportProgramModelFile.gif"
+            extensions="sportprogram"
+            class="sportProgram.presentation.SportProgramEditor"
+            contributorClass="sportProgram.presentation.SportProgramActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

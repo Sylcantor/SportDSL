@@ -1,6 +1,7 @@
-#Wed Mar 15 12:12:58 CET 2023
+#Wed Mar 22 12:42:09 CET 2023
 rulergrid.rulerunit=1
 print.margin.left=0.5
+viewport.x=0
 rulergrid.gridlinestyle=6
 zoom=1.0
 print.useMillim=true

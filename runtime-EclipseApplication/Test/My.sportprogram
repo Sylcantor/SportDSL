@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sportProgram:SportProgram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sportProgram="http://www.example.org/sportProgram">
+  <programduration type="Months" value="1"/>
+  <preferences availability="Flexible" equipment="true"/>
+  <training Intensity="Medium" frequency="5" mulscleTarget="Mixed" duration="60" type="//@librarytype/@type.1"/>
+  <librarytype>
+    <type name="cardio"/>
+    <type name="strength"/>
+    <type name="mixed"/>
+  </librarytype>
+</sportProgram:SportProgram>
